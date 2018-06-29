@@ -418,6 +418,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form'], function(exports){
        data = JSON.stringify(data);
       }
 
+      data._t=new Date().getTime();
       $.ajax({
         type: options.method || 'get'
         ,url: options.url
