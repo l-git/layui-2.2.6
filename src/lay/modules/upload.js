@@ -259,7 +259,13 @@ layui.define('layer' , function(exports){
           res = JSON.parse(res);
         } catch(e){
           res = {};
-          return that.msg('请对上传接口返回有效JSON');
+
+          var m=null;
+          if(typeof conststr != undefined){
+            conststr.imageServiceErrMsg&&(m=conststr.imageServiceErrMsg);
+          }
+
+          return that.msg(m||'请对上传接口返回有效JSON');
         }
       }
       typeof options.done === 'function' && options.done(res, index || 0, function(files){
